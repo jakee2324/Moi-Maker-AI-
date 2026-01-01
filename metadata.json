@@ -1,0 +1,5 @@
+{
+  "name": " Mii Maker AI",
+  "description": "A Nintendo-inspired character creator that uses Gemini to generate unique personalities and backstories for your digital avatars.",
+  "requestFramePermissions": []
+}
