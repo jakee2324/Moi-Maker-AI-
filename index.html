@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mii Maker AI</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -41,6 +41,152 @@
     .scrollbar-hide {
       -ms-overflow-style: none;
       scrollbar-width: none;
+    }
+
+    /* Ambient Plaza Animations */
+    @keyframes sway {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+    .animate-sway {
+      animation: sway 4s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes float-clouds {
+      from { transform: translateX(-100px); }
+      to { transform: translateX(100px); }
+    }
+    .animate-float-clouds {
+      animation: float-clouds 20s linear infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 0.8; transform: scale(1.2); }
+    }
+    .animate-sparkle {
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    @keyframes fountain-water {
+      0%, 100% { transform: scaleY(1); opacity: 0.7; }
+      50% { transform: scaleY(1.1); opacity: 1; }
+    }
+    .animate-fountain {
+      animation: fountain-water 1.5s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.4; filter: blur(4px); }
+      50% { opacity: 0.8; filter: blur(8px); }
+    }
+    .animate-glow {
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes butterfly-fly {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(20px, -20px) rotate(10deg); }
+      50% { transform: translate(0, -40px) rotate(-10deg); }
+      75% { transform: translate(-20px, -20px) rotate(5deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+    .animate-butterfly {
+      animation: butterfly-fly 6s ease-in-out infinite;
+    }
+
+    @keyframes grass-sway {
+      0%, 100% { transform: skewX(-5deg); }
+      50% { transform: skewX(5deg); }
+    }
+    .animate-grass {
+      animation: grass-sway 3s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    /* Interactive Animations */
+    @keyframes mii-jump {
+      0%, 100% { transform: translateY(0) scale(1, 1); }
+      30% { transform: translateY(-30px) scale(0.9, 1.1); }
+      50% { transform: translateY(-40px) scale(0.9, 1.1); }
+      80% { transform: translateY(0) scale(1.1, 0.9); }
+    }
+    .animate-mii-jump {
+      animation: mii-jump 0.5s ease-out;
+    }
+
+    @keyframes gentle-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-gentle-bob {
+      animation: gentle-bob 1.5s ease-in-out infinite;
+    }
+
+    @keyframes coin-pop {
+      0% { transform: translateY(0) scale(0); opacity: 0; }
+      50% { transform: translateY(-50px) scale(1.2); opacity: 1; }
+      100% { transform: translateY(-100px) scale(1); opacity: 0; }
+    }
+    .animate-coin-pop {
+      animation: coin-pop 0.8s ease-out forwards;
+    }
+
+    @keyframes rainbow-glow {
+      0% { filter: hue-rotate(0deg) drop-shadow(0 0 10px rgba(255,255,255,0.8)); }
+      100% { filter: hue-rotate(360deg) drop-shadow(0 0 20px rgba(255,255,255,1)); }
+    }
+    .animate-rainbow {
+      animation: rainbow-glow 2s linear infinite;
+    }
+
+    /* Room Specific */
+    .perspective-room {
+      perspective: 1000px;
+    }
+    .room-wall {
+      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    }
+
+    /* Cinema Styles */
+    @keyframes curtain-left {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+    @keyframes curtain-right {
+      from { transform: translateX(0); }
+      to { transform: translateX(100%); }
+    }
+    .curtain-left { animation: curtain-left 1.5s ease-in-out forwards; }
+    .curtain-right { animation: curtain-right 1.5s ease-in-out forwards; }
+
+    @keyframes popcorn-float {
+      0% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0); }
+    }
+    .popcorn-float { animation: popcorn-float 3s ease-in-out infinite; }
+
+    /* Game Place specific styles */
+    .arcade-bg {
+      background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+      background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px);
+      background-size: 550px 550px, 350px 350px, 250px 250px;
+      background-position: 0 0, 40px 60px, 130px 270px;
+    }
+    
+    @keyframes neon-flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0ff, 0 0 40px #0ff; opacity: 1; }
+      20%, 24%, 55% { text-shadow: none; opacity: 0.5; }
+    }
+    .neon-text {
+      color: #fff;
+      animation: neon-flicker 3s infinite;
     }
   </style>
 <script type="importmap">
